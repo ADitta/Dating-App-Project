@@ -20,6 +20,7 @@ export class Nav implements OnInit {
   protected creds: any = {};
   protected selectedTheme = signal<string>(localStorage.getItem('theme') || 'light');
   protected themes = themes;
+  protected roles = ["Admin", "Moderator"];
 
   ngOnInit(): void {
     document.documentElement.setAttribute('data-theme', this.selectedTheme());
@@ -46,6 +47,13 @@ export class Nav implements OnInit {
     });
   }
 
+  protected get userIsAdminOrModerator(): boolean{
+
+    if(this.accountService.currentUser()?.roles?.some(r => this.roles.includes(r))){
+      return true;
+    }
+    return false;
+  }
   logout() {
     this.accountService.logout();
     this.router.navigateByUrl('/');
