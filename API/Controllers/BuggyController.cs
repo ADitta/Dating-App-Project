@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -26,6 +27,13 @@ namespace API.Controllers
         public IActionResult GetServerError()
         {
             throw new Exception("This is a server error");
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin-secret")]
+        public ActionResult<string> GetSecretAdmin()
+        {
+            return Ok("Only admins should see this");
         }
     }
 }
