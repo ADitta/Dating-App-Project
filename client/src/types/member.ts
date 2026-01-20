@@ -16,6 +16,7 @@ export type Photo = {
   url: string;
   publidId?: string;
   memberId: string;
+  isApproved: boolean;
 };
 
 export type EditableMember = {
