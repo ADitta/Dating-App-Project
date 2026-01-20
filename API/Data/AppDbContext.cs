@@ -18,6 +18,8 @@ namespace API.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Photo>().HasQueryFilter(x => x.IsApproved);
+
 
             modelBuilder.Entity<IdentityRole>()
               .HasData(
