@@ -77,7 +77,8 @@ public class MembersController(IUnitOfWork uow, IPhotoService photoService) : Ba
         {
             Url = result.SecureUrl.AbsoluteUri,
             PublicId = result.PublicId,
-            MemberId = User.GetMemberId()
+            MemberId = User.GetMemberId(),
+            IsApproved = true
         };
 
         member.Photos.Add(photo);

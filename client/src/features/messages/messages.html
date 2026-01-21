@@ -36,7 +36,7 @@
         @for (message of paginatedMessages()?.items; track message.id) {
         <tr
         [class.font-bold]="isInbox && !message.dateRead"
-        routerLink="/members/{{isInbox ? message.senderId : message.recipientId}}/messages"
+         routerLink="/members/{{isInbox ? message.senderId : message.recipientId}}/messages"
         class="hover:bg-base-200 cursor-pointer"
         >
             <td class="w-2/9">

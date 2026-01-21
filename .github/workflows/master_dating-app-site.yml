@@ -26,7 +26,7 @@ jobs:
       - name: Install Angular cli
         run: npm install -g @angular/cli@21
 
-      - name: Install deps and build anular app
+      - name: Install deps and build angular app
         run: |
           cd client
           npm install

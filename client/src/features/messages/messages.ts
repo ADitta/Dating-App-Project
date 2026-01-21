@@ -36,8 +36,8 @@ export class Messages implements OnInit {
     this.messageService.getMessages(this.container, this.pageNumber, this.pageSize).subscribe({
       next: response => {
         this.paginatedMessages.set(response);
-        this.fetchedContainer === this.container;
-      }
+        this.fetchedContainer = this.container;
+      },
     })
   }
 
